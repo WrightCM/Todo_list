@@ -1,0 +1,31 @@
+/* Navbar Section */
+.nav-bar {
+    padding: 0.7%;
+    background-color: #A7727D;
+    font-size: 1.5rem;
+}
+
+.fa-regular {
+    margin: auto 7px auto auto;
+    font-size: 1.7rem;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+}
+
+/* Input Section */
+
+#input {
+    padding: 2% 3%;
+}
+
+/* To-do section */
+#todos {
+    padding: 2% 5%;
+}
+
+.checked {
+    text-decoration: line-through;
+    color: #d1d1d1;
+}

@@ -1,0 +1,53 @@
+{% include "header.html" %}
+
+<section id="input">
+    <form action="{{url_for('homepage')}}" method="post">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="Write your next task here..."
+                   aria-label="Write your next task here..." aria-describedby="basic-addon2" name="todo">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">To-Do</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section id="todos">
+    <form action="{{url_for('homepage')}}" method="post">
+        {% for todo in todos %}
+        {% if todo.on == 0%}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+
+                    <a href="{{url_for('check', id=todo.id)}}" aria-label="Checkbox for following text input"><i
+                            class="fa-regular fa-square"></i></a>
+                </div>
+            </div>
+            <label class="form-control unchecked ">{{todo.text}}</label>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Buttons">
+                <a role="button" type="button" class="btn btn-secondary" href="{{url_for('delete', id=todo.id)}}">Delete Todo</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% for todo in todos %}
+        {% if todo.on != 0%}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <a href="{{url_for('uncheck', id=todo.id)}}" aria-label="Checkbox for following text input"><i
+                            class="fa-regular fa-square-check"></i></a>
+                </div>
+            </div>
+            <label class="form-control checked">{{todo.text}}</label>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Buttons">
+                <a role="button" type="button" class="btn btn-secondary" href="{{url_for('delete', id=todo.id)}}">Delete Todo</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </form>
+</section>
+</body>
+</html>
